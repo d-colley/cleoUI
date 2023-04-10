@@ -1,7 +1,12 @@
+using CleoUI;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<CleoUIDbContext>(options =>
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnStr"]));
 
 var app = builder.Build();
 

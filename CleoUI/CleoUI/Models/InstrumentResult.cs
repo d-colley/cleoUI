@@ -2,7 +2,7 @@
 
 namespace CleoUI.Models
 {
-    public class Result
+    public class InstrumentResult
     {
         [Key]
         public int ResultID { get; set; }
