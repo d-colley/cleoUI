@@ -7,9 +7,9 @@ namespace CleoUI.Models
         [Key]
         public int InstrumentID { get; set; }
         [Required]
-        public string InstrumentName { get; set; }
-        public string InstrumentCode { get; set; }
-        public string InstrumentURL { get; set; }
+        public string? InstrumentName { get; set; }
+        public string? InstrumentCode { get; set; }
+        public string? InstrumentURL { get; set; }
 
     }
 }
