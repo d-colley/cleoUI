@@ -38,7 +38,8 @@
             </td>
 
             <td>
-                    <button class="btn btn-primary" id="load" onclick="LoadInstrument('@Html.DisplayFor(modelItem => item.InstrumentURL)')">Load</button>
+                    <button class="btn btn-primary" id="load" onclick="LoadInstrument('@Html.DisplayFor(modelItem => item.InstrumentURL)','@Html.DisplayFor(modelItem => item.InstrumentCode)')">Load</button>
+                    <div id="@Html.DisplayFor(modelItem => item.InstrumentCode)"></div>
             </td>
 
             <td>
@@ -106,7 +107,7 @@
         //    });
         //});
 
-        function LoadInstrument(element)
+        function LoadInstrument(element, id)
         {
             var address = "https://localhost:7096/api/Analytics/GetInfo/" + element;
 
@@ -115,8 +116,9 @@
                 console.log(data[0]['monthly']);
                 var weekly = data[0]['weekly'];
                 var monthly = data[0]['monthly'];
-                $('.modal-body p').html("Weekly: " + weekly + " " + "Monthly: " + monthly);
-                $('.modal').show()
+                //$('.modal-body p').html("Weekly: " + weekly + " " + "Monthly: " + monthly);
+                $('#' + id).html("Weekly: " + weekly + " " + "Monthly: " + monthly);
+                //$('.modal').show()
             });
         }
     </script>
