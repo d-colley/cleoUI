@@ -22,21 +22,5 @@
 
 @section scripts{
     <script>
-        //var result = [];
-        $(function () {
-            $('#load').on('click', function () {
-                //$('#grid').load('https://localhost:7096/api/Analytics/GetInfo/ncb-financial-technical');
-                $.get('https://localhost:7096/api/Analytics/GetInfo/ncb-financial-technical', function(data){
-                   //var result = JSON.parse(data);
-                   //result = data;
-                   //console.log((result[0]));
-                   //console.log(data['monthly']);
-                   //console.log(data);
-                   console.log(data[0]['weekly'])
-                   console.log(data[0]['monthly'])
-
-                });
-            });
-        });
     </script>
 }

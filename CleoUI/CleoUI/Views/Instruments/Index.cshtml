@@ -75,50 +75,14 @@
 
 @section scripts{
     <script>
-        //var result = [];
-        //$(function () {
-        //    $('#load').on('click', function () {
-        //        var address = "https://localhost:7096/api/Analytics/GetInfo/" + $(this).data("id");
-        //        //$('#grid').load('https://localhost:7096/api/Analytics/GetInfo/ncb-financial-technical');
-        //        //$.get('https://localhost:7096/api/Analytics/GetInfo/ncb-financial-technical', function(data){
-        //           //var result = JSON.parse(data);
-        //           //result = data;
-        //           //console.log((result[0]));
-        //           //console.log(data['monthly']);
-        //           //console.log(data);
-        //        //   console.log(data[0]['weekly'])
-        //        //   console.log(data[0]['monthly'])
-
-        //        //});
-
-        //        $.get(address, function (data) {
-        //            //var result = JSON.parse(data);
-        //            //result = data;
-        //            //console.log((result[0]));
-        //            //console.log(data['monthly']);
-        //            //console.log(data);
-        //            console.log(data[0]['weekly']);
-        //            console.log(data[0]['monthly']);
-        //            var weekly = data[0]['weekly'];
-        //            var monthly = data[0]['monthly'];
-        //            $('.modal-body p').html("Weekly: " + weekly + " " + "Monthly: " + monthly);
-        //            $('.modal').show()
-        //        });
-        //    });
-        //});
-
         function LoadInstrument(element, id)
         {
-            var address = "https://localhost:7096/api/Analytics/GetInfo/" + element;
+            var address = "http://localhost:5000/scrape/" + element;
 
             $.get(address, function (data) {
-                console.log(data[0]['weekly']);
-                console.log(data[0]['monthly']);
-                var weekly = data[0]['weekly'];
-                var monthly = data[0]['monthly'];
-                //$('.modal-body p').html("Weekly: " + weekly + " " + "Monthly: " + monthly);
+                var weekly = data['weekly'];
+                var monthly = data['monthly'];
                 $('#' + id).html("Weekly: " + weekly + " " + "Monthly: " + monthly);
-                //$('.modal').show()
             });
         }
     </script>
