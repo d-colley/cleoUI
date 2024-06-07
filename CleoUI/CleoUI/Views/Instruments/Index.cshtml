@@ -38,8 +38,9 @@
             </td>
 
             <td>
-                    <button class="btn btn-primary" id="load" onclick="LoadInstrument('@Html.DisplayFor(modelItem => item.InstrumentURL)','@Html.DisplayFor(modelItem => item.InstrumentCode)')">Load</button>
-                    <div id="@Html.DisplayFor(modelItem => item.InstrumentCode)"></div>
+                <div id="spinner" class="spinner col-2"></div>
+                <button class="btn btn-primary" id="load" onclick="LoadInstrument('@Html.DisplayFor(modelItem => item.InstrumentURL)','@Html.DisplayFor(modelItem => item.InstrumentCode)')">Load</button>
+                <div id="@Html.DisplayFor(modelItem => item.InstrumentCode)"></div>
             </td>
 
             <td>
@@ -73,17 +74,25 @@
     </div>
 </div>
 
+<link rel="stylesheet" href="~/css/custom.css" type="text/css" />
+
 @section scripts{
     <script>
         function LoadInstrument(element, id)
         {
             var address = "http://localhost:5000/scrape/" + element;
+            // Show the spinner
+            $('#spinner').show();
 
             $.get(address, function (data) {
+                
                 var weekly = data['weekly'];
                 var monthly = data['monthly'];
                 $('#' + id).html("Weekly: " + weekly + " " + "Monthly: " + monthly);
+                $('#spinner').hide();
             });
+
+            
         }
     </script>
     }
